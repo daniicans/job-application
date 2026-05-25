@@ -7,7 +7,11 @@ interface FormData {
   lastName: string;
   email: string;
   phone: string;
-  location: string;
+  streetAddress: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  country: string;
   linkedinOrPortfolio: string;
   roleApplyingFor: string;
   howDidYouHear: string;
@@ -28,7 +32,8 @@ interface FormData {
 }
 
 const empty: FormData = {
-  firstName: '', lastName: '', email: '', phone: '', location: '',
+  firstName: '', lastName: '', email: '', phone: '',
+  streetAddress: '', city: '', state: '', zipCode: '', country: 'United States',
   linkedinOrPortfolio: '', roleApplyingFor: '', howDidYouHear: '',
   engagementType: '', availableStartDate: '', compensationExpectation: '',
   hoursPerWeek: '', workAuthorization: '', requiresSponsorship: '',
@@ -159,8 +164,24 @@ export default function Home() {
               <input type="tel" className={inputClass('phone')} value={form.phone} onChange={set('phone')} placeholder="+1 (555) 000-0000" />
             </div>
             <div className="sm:col-span-2">
-              {fieldLabel('Location', 'location')}
-              <input className={inputClass('location')} value={form.location} onChange={set('location')} placeholder="Austin, TX" />
+              {fieldLabel('Street address', 'streetAddress')}
+              <input className={inputClass('streetAddress')} value={form.streetAddress} onChange={set('streetAddress')} placeholder="123 Main St" />
+            </div>
+            <div>
+              {fieldLabel('City', 'city')}
+              <input className={inputClass('city')} value={form.city} onChange={set('city')} placeholder="Austin" />
+            </div>
+            <div>
+              {fieldLabel('State', 'state')}
+              <input className={inputClass('state')} value={form.state} onChange={set('state')} placeholder="TX" />
+            </div>
+            <div>
+              {fieldLabel('ZIP code', 'zipCode')}
+              <input className={inputClass('zipCode')} value={form.zipCode} onChange={set('zipCode')} placeholder="78701" />
+            </div>
+            <div>
+              {fieldLabel('Country', 'country')}
+              <input className={inputClass('country')} value={form.country} onChange={set('country')} placeholder="United States" />
             </div>
             <div className="sm:col-span-2">
               {fieldLabel('LinkedIn or Portfolio URL', 'linkedinOrPortfolio')}
